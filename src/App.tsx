@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './app.css'
+import { useRepos } from './hooks'
 
 const App = () => {
   const [showGame, setShowGame] = useState<boolean>(false)
-  const [repos, setRepos] = useState([1])
+  const [repos, setRepos, allRepos] = useRepos(100)
 
   
   const handleStart = (params: any) => {
@@ -31,6 +32,7 @@ const App = () => {
       {showGame && (
         <>
           <div>Carregado</div>
+          {repos.map( repo => (<h1>{repo}</h1>))}
         </>
       )}
     </main>
