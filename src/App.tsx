@@ -32,7 +32,7 @@ const App = () => {
       {showGame && (
         <>
           <div>Carregado</div>
-          {repos.map( repo => (<h1>{repo}</h1>))}
+          {repos.map( repo => (<h1>{repo.name}</h1>))}
         </>
       )}
     </main>
