@@ -1,42 +1,61 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+/* Theme */
+
+:root {
+  --color-primary: #339989;
+  --color-secondary: #E0B0D5;
+  --color-highlight: #453643;
+  --color-danger: #ff206e;
+  --color-ligth: #fff;
+  --color-dark: #112;
+  /* dark-shades */
+  --color-shade: #556
+  --color-darkest: #001;
+  --color-darkish: #223;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.gradient {
+  background: -webkit-linear-gradient(
+    bottom,
+    var(--color-primary),
+    var(--color-highlight)
+  )
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gradient.text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.gradient.alternate {
+  background: -webkit-linear-gradient(
+    bottom,
+    var(--color-danger),
+    var(--color-secondary)
+  );
 }
 
-.card {
-  padding: 2em;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-.read-the-docs {
-  color: #888;
+body {
+  font-size: 6rem;
+  color:var(--color-ligth);
+  background-color: var(--color-dark);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  gap: 2rem;
+  width: 100%;
 }
