@@ -15,11 +15,12 @@ const App = () => {
     <main>
       {!showGame && (
         <>
-          <h1>Welcome to RepoWars</h1>
-          <h2>A developer-driven guessing game</h2>
+          <h1 className='title'>Welcome to RepoWars</h1>
+          <h2  className='headline gradient text'>A developer-driven guessing game</h2>
           {repos.length === 0 ? 
-            <div>Loading...</div> : 
+            <div className='loading'>Loading...</div> : 
             <button 
+            className='button gradient'
             type="submit"
             onClick={handleStart}>Start</button>
           }
