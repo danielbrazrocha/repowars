@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { FaCheckCircle, FaExchangeAlt, FaTimesCircle } from 'react-icons/fa'
+import "./game.css"
+import RepoCard from './RepoCard'
 
 interface GameProps {
     repoState: [Repo[], React.Dispatch<React.SetStateAction<Repo[]>>]
@@ -15,6 +18,13 @@ const Game: React.FC<GameProps> = ({
     const [over, setOver] = useState<boolean>(false)
     const [repo1, setRepo1] = useState<Repo | null>(null)
     const [repo2, setRepo2] = useState<Repo | null>(null)
+    const [correct, setCorrect] = useState<number>(0)
+    const [wrong, setWrong] = useState<number>(0)
+
+      //   Handlers:
+    const handleChoice = (r: Repo) => {
+
+    }
     
     //   Set Initial Repos
     useEffect(() => {
@@ -30,8 +40,26 @@ const Game: React.FC<GameProps> = ({
         <div className='repos'>
             <h1 className='title'>Choose the Repo with most Stars!</h1>
             <div className='container'>
-                <div>{repo1.name}</div>
-                <div>{repo2.name}</div>
+                <RepoCard
+                content={repo1}
+                handler={handleChoice} />
+                              <div className='dashboard'>
+                <div className='result correct'>
+                  <p>{correct}</p>
+
+                  <FaCheckCircle />
+                </div>
+
+                <FaExchangeAlt className='icon-versus' />
+
+                <div className='result wrong'>
+                  <p>{wrong}</p>
+                  <FaTimesCircle />
+                </div>
+              </div>
+                <RepoCard 
+                content={repo2}
+                handler={handleChoice} />
             </div>
             
             {/* buttons bar */}
