@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './app.css'
+import { Game } from './components'
 import { useRepos } from './hooks'
 
 const App = () => {
@@ -9,8 +10,6 @@ const App = () => {
   
   const handleStart = (params: any) => {
     setShowGame(true)
-    console.log('first')
-    return null
   }
   return (
     <main>
@@ -30,10 +29,11 @@ const App = () => {
       )}
 
       {showGame && (
-        <>
-          <div>Carregado</div>
-          {repos.map( repo => (<h1>{repo.name}</h1>))}
-        </>
+        <Game
+          repoState={[repos, setRepos]}
+          originalList={allRepos}
+          setShowGame={setShowGame}
+        />
       )}
     </main>
   )
