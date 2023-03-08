@@ -26,15 +26,38 @@ const Game: React.FC<GameProps> = ({
   return (
     <div className='game'>
         {over ? ( <div className='score'></div>) :
-        ( repo1 && repo2 && <div className='repos'>
+        ( repo1 && repo2 && 
+        <div className='repos'>
             <h1 className='title'>Choose the Repo with most Stars!</h1>
             <div className='container'>
                 <div>{repo1.name}</div>
                 <div>{repo2.name}</div>
             </div>
+            
+            {/* buttons bar */}
+            <div className='buttons'>
+            <button
+            type='submit'
+            className='button gradient alternate'
+            onClick={() => setShowGame(false)}
+            >
+            {over ? "Play Again" : "Back"}
+            </button>
+            {!over && (
+            <button
+                type='submit'
+                className='button gradient'
+                onClick={() => setShowGame(false)}
+            >
+                Skip
+            </button>
+            )}
+            </div>
 
 
         </div>)
+
+
         }
     </div>
   )
