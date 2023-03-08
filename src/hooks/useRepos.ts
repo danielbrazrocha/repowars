@@ -15,11 +15,17 @@ const fetchRepos = async (amount: number, setters: Dispatch<SetStateAction<any[]
   setters.forEach( (setter) => setter(res.data.items))
 }
 
-const useRepos = (amount: number) => {
+type UseReposReturnType = [
+  repositories: Repo[],
+  setRepositories: Dispatch<SetStateAction<Repo[]>>,
+  allRepos: Repo[],
+]
+
+const useRepos = (amount: number): UseReposReturnType => {
     //criar estado para todos os repositorios retornados
-    const [allRepos, setAllRepos] = useState<any>([])
+    const [allRepos, setAllRepos] = useState<Repo[]>([])
     //criar um estado para os repos para serem manipulados
-    const [repositories, setRepositories] = useState<any>([])
+    const [repositories, setRepositories] = useState<Repo[]>([])
     //um useEffect para recuperar os repositorios do GitHub quando chamado o hook
     useEffect(() => {
       fetchRepos(amount, [setAllRepos,setRepositories])    
